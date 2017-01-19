@@ -68,6 +68,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Command-Line" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/19/Command-Line/" class="article-date">
+  <time datetime="2017-01-19T07:15:31.000Z" itemprop="datePublished">2017-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/19/Command-Line/">Command Line</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Commend-Line"><a href="#Commend-Line" class="headerlink" title="Commend Line"></a>Commend Line</h1><h2 id="기본"><a href="#기본" class="headerlink" title="기본"></a>기본</h2><h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>outputs the name of the current working directory.</p>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>lists all files and directories in the working directory.</p>
+<ul>
+<li>-a - lists all contents, including hidden files and directories</li>
+<li>-l - lists all contents of a directory in long format</li>
+<li>-t - order files and directories by the time they were last modified.</li>
+<li>-alt - lists all contents, including hidden files and directories, in long format, ordered by the date and time they were last modified.</li>
+</ul>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><p>switches you into the directory you specify.</p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><p>creates a new directory in the working directory.</p>
+<h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><p>creates a new file inside the working directory.</p>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><p>복사</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp frida.txt lincoln.txt</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp m*.txt scifi/</div></pre></td></tr></table></figure>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
+<li>삭제</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm waterboy.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>디렉토리 삭제</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -r</div></pre></td></tr></table></figure>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat volcanoes.txt | wc</div></pre></td></tr></table></figure>
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -i Mount mountains.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>grep searches for capital or lowercase strings that match Mount in mountains.txt.</li>
+</ul>
+<h2 id="Redirection"><a href="#Redirection" class="headerlink" title="Redirection"></a>Redirection</h2><h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"Hello"</span></div></pre></td></tr></table></figure>
+<p>Hello</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat oceans.txt</div></pre></td></tr></table></figure>
+<h3 id="gt"><a href="#gt" class="headerlink" title="&gt;"></a>&gt;</h3><ul>
+<li>지우고 복사</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"Hello"</span> &gt; hello.txt</div><div class="line">cat oceans.txt &gt; continents.txt</div></pre></td></tr></table></figure>
+<h3 id="gt-gt"><a href="#gt-gt" class="headerlink" title="&gt;&gt;"></a>&gt;&gt;</h3><ul>
+<li>뒤에다 복사</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat glaciers.txt &gt;&gt; rivers.txt</div></pre></td></tr></table></figure>
+<h3 id="lt"><a href="#lt" class="headerlink" title="&lt;"></a>&lt;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat glaciers.txt &gt;&gt; rivers.txt</div></pre></td></tr></table></figure>
+<h2 id="Pipe"><a href="#Pipe" class="headerlink" title="Pipe"></a>Pipe</h2><h3 id=""><a href="#" class="headerlink" title="|"></a>|</h3><p> The | takes the standard output of the command on the left, and pipes it as standard input to the command on the right. You can think of this as “command to command” redirection.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat volcanoes.txt | wc</div></pre></td></tr></table></figure>
+<h2 id="이해-안하고-넘어간거"><a href="#이해-안하고-넘어간거" class="headerlink" title="이해 안하고 넘어간거"></a>이해 안하고 넘어간거</h2><h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="string">'s/snow/rain/g'</span> forests.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>sed stands for “stream editor”. It accepts standard input and modifies it based on an expression, before displaying it as output data. It is similar to “find and replace”.</li>
+<li>Let’s look at the expression ‘s/snow/rain/‘:</li>
+<li>s: stands for “substitution”. it is always used when using sed for substitution.<br>snow: the search string, the text to find.<br>rain: the replacement string, the text to add in place.<br>In this case, sed searches forests.txt for the word “snow” and replaces it with “rain.” Importantly, the above command will only replace the first instance of “snow” on a line.</li>
+</ul>
+<h3 id="grep-1"><a href="#grep-1" class="headerlink" title="grep"></a>grep</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grep -R Arctic /home/ccuser/workspace/geography</div><div class="line">grep -Rl Arctic /home/ccuser/workspace/geography</div></pre></td></tr></table></figure>
+<ul>
+<li>grep -R searches all files in a directory and outputs filenames and lines containing matched results. -R stands for “recursive”. Here grep -R searches the /home/ccuser/workspace/geography directory for the string “Arctic” and outputs filenames and lines with matched results.</li>
+<li>grep -Rl searches all files in a directory and outputs only filenames with matched results. -R stands for “recursive” and l stands for “files with matches”. Here grep -Rl searches the /home/ccuser/workspace/geography directory for the string “Arctic” and outputs filenames with matched results.</li>
+</ul>
+<h2 id="Nano"><a href="#Nano" class="headerlink" title="Nano"></a>Nano</h2><ul>
+<li>열기</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nano ~/.bash_profile</div></pre></td></tr></table></figure>
+<ul>
+<li>실행</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure>
+<h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><ul>
+<li>pd라는 명령어를 만들어서 pwd처럼 사용</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pd=&quot;pwd&quot;</div></pre></td></tr></table></figure>
+<h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export USER=&quot;Jane Doe&quot;</div></pre></td></tr></table></figure>
+<h3 id="extra"><a href="#extra" class="headerlink" title="extra"></a>extra</h3><ul>
+<li>export VARIABLE=”Value” sets and exports an environment variable.</li>
+<li>USER is the name of the current user.</li>
+<li>PS1 is the command prompt.</li>
+<li>HOME is the home directory. It is usually not customized.</li>
+<li>PATH returns a colon separated list of file paths. It is customized in advanced cases.</li>
+<li>env returns a list of environment variables.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Command-Line/" data-id="ciy41n85f00031cv669pixvgq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/19/Javascript/" class="article-date">
@@ -127,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Javascript/" data-id="ciy3x33hy0001r4v6dz0btrxy" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Javascript/" data-id="ciy41n85a00011cv6msfv5ir8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -208,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/18/html-css/" data-id="ciy3x33i10002r4v6sd2n3kb6" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/18/html-css/" data-id="ciy41n85d00021cv6ug3vtfyp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/17/hello-world/" data-id="ciy3x33ht0000r4v6ufu03bzn" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/17/hello-world/" data-id="ciy41n85600001cv6gqryzzel" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,6 +400,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/01/19/Command-Line/">Command Line</a>
+          </li>
         
           <li>
             <a href="/2017/01/19/Javascript/">Javascript</a>
