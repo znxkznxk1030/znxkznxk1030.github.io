@@ -68,6 +68,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/19/JQuery/" class="article-date">
+  <time datetime="2017-01-19T14:56:10.000Z" itemprop="datePublished">2017-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/19/JQuery/">JQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="script-삽입문"><a href="#script-삽입문" class="headerlink" title="script 삽입문"></a>script 삽입문</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="기본구조"><a href="#기본구조" class="headerlink" title="기본구조"></a>기본구조</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'div'</span>).action(howfast);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="electric-slide"><a href="#electric-slide" class="headerlink" title="electric slide"></a>electric slide</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).slideDown(<span class="string">'slow'</span>);</div></pre></td></tr></table></figure>
+<h3 id="Mouse"><a href="#Mouse" class="headerlink" title="Mouse"></a>Mouse</h3><ul>
+<li>Mouseenter</li>
+<li>Mouseleave</li>
+</ul>
+<h3 id="p-vs-‘p’"><a href="#p-vs-‘p’" class="headerlink" title="$p vs $(‘p’)"></a>$p vs $(‘p’)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $p = $(<span class="string">'p'</span>);</div></pre></td></tr></table></figure>
+<h3 id="this-is-important"><a href="#this-is-important" class="headerlink" title="this is important!"></a>this is important!</h3><h3 id="Inserting-Elements"><a href="#Inserting-Elements" class="headerlink" title="Inserting Elements"></a>Inserting Elements</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"body"</span>).append(<span class="string">'&lt;p&gt;\"I\'m a paragraph!\"&lt;/p&gt;'</span>);</div></pre></td></tr></table></figure>
+<h3 id="before-and-after"><a href="#before-and-after" class="headerlink" title="before and after"></a>before and after</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'target'</span>).after(<span class="string">'&lt;tag&gt;To add&lt;/tag&gt;'</span>);</div></pre></td></tr></table></figure>
+<h3 id="addClass"><a href="#addClass" class="headerlink" title="addClass"></a>addClass</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#text'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="keyword">this</span>).addClass(<span class="string">'highlighted'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="modify-attribute"><a href="#modify-attribute" class="headerlink" title="modify attribute"></a>modify attribute</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'div'</span>).height(<span class="string">"200px"</span>);</div><div class="line">    $(<span class="string">'div'</span>).width(<span class="string">"200px"</span>);</div><div class="line">    $(<span class="string">'div'</span>).css(<span class="string">"border-radius"</span>, <span class="string">"10px"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="button-action"><a href="#button-action" class="headerlink" title="button action"></a>button action</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#button'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> toAdd = $(<span class="string">'input[name=checkListItem]'</span>).val();   </div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="append-to-body"><a href="#append-to-body" class="headerlink" title="append to body"></a>append to body</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#button'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> toAdd = $(<span class="string">'input[name=checkListItem]'</span>).val();   </div><div class="line">        $(<span class="string">'.list'</span>).append(<span class="string">'&lt;div class="item"&gt;'</span> + toAdd + <span class="string">'&lt;/div&gt;'</span>    );</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="double-click"><a href="#double-click" class="headerlink" title="double click"></a>double click</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'div'</span>).dblclick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="keyword">this</span>).fadeOut(<span class="string">'fast'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="animate"><a href="#animate" class="headerlink" title="animate"></a>animate</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="built_in">document</span>).keydown(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</div><div class="line">        <span class="keyword">switch</span>(<span class="built_in">parseInt</span>(key.which,<span class="number">10</span>)) &#123;</div><div class="line">			<span class="comment">// Left arrow key pressed</span></div><div class="line">			<span class="keyword">case</span> <span class="number">37</span>:</div><div class="line">				$(<span class="string">'img'</span>).animate(&#123;<span class="attr">left</span>: <span class="string">"-=10px"</span>&#125;, <span class="string">'fast'</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="comment">// Up Arrow Pressed</span></div><div class="line">			<span class="keyword">case</span> <span class="number">38</span>:</div><div class="line">				<span class="comment">// Put our code here</span></div><div class="line">				$(<span class="string">'img'</span>).animate(&#123;<span class="attr">top</span>: <span class="string">"-=10px"</span>&#125;, <span class="string">'fast'</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="comment">// Right Arrow Pressed</span></div><div class="line">			<span class="keyword">case</span> <span class="number">39</span>:</div><div class="line">				<span class="comment">// Put our code here</span></div><div class="line">				$(<span class="string">'img'</span>).animate(&#123;<span class="attr">left</span>: <span class="string">"+=10px"</span>&#125;, <span class="string">'fast'</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="comment">// Down Arrow Pressed</span></div><div class="line">			<span class="keyword">case</span> <span class="number">40</span>:</div><div class="line">				<span class="comment">// Put our code here</span></div><div class="line">				$(<span class="string">'img'</span>).animate(&#123;<span class="attr">top</span>: <span class="string">"+=10px"</span>&#125;, <span class="string">'fast'</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="effect"><a href="#effect" class="headerlink" title="effect"></a>effect</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="string">'div'</span>).effect(<span class="string">'bounce'</span>,&#123;<span class="attr">times</span>:<span class="number">3</span>&#125;, <span class="number">500</span>);</div><div class="line">    &#125;);    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="draggable"><a href="#draggable" class="headerlink" title="draggable"></a>draggable</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#car'</span>).draggable();    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="selectable"><a href="#selectable" class="headerlink" title="selectable"></a>selectable</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'ol'</span>).selectable();    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="sortable"><a href="#sortable" class="headerlink" title="sortable"></a>sortable</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'ol'</span>).sortable();    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://znxkznxk1030.github.io/2017/01/19/JQuery/" data-id="ciy4i3mg50005dwv67smff1kk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/19/Git/" class="article-date">
@@ -123,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Git/" data-id="ciy44g4ww0000d4v6gm1eitwb" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Git/" data-id="ciy4i3mfv0001dwv6c1ejpdr9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Command-Line/" data-id="ciy44g4x10001d4v6h00qf8ok" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Command-Line/" data-id="ciy4i3mfq0000dwv68d1j3k5m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Javascript/" data-id="ciy44g4x30002d4v662ux7x68" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/19/Javascript/" data-id="ciy4i3mfx0002dwv6ypulz23d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/18/html-css/" data-id="ciy44g4x70004d4v658fkjkg3" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/18/html-css/" data-id="ciy4i3mg10004dwv6qhxdwwih" class="article-share-link">Share</a>
       
       
     </footer>
@@ -427,7 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://znxkznxk1030.github.io/2017/01/17/hello-world/" data-id="ciy44g4x60003d4v6l5u1g6mf" class="article-share-link">Share</a>
+      <a data-url="https://znxkznxk1030.github.io/2017/01/17/hello-world/" data-id="ciy4i3mfz0003dwv6g1vyvbg2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -467,6 +522,10 @@
       <ul>
         
           <li>
+            <a href="/2017/01/19/JQuery/">JQuery</a>
+          </li>
+        
+          <li>
             <a href="/2017/01/19/Git/">Git</a>
           </li>
         
@@ -480,10 +539,6 @@
         
           <li>
             <a href="/2017/01/18/html-css/">html/css</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/17/hello-world/">Hello World</a>
           </li>
         
       </ul>
