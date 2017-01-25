@@ -40,7 +40,7 @@ HttpClient
 
 Log
 너무 많은">
-<meta property="og:updated_time" content="2017-01-25T06:25:51.790Z">
+<meta property="og:updated_time" content="2017-01-25T08:07:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Day 2">
 <meta name="twitter:description" content="핵심 내용HTTP
@@ -232,10 +232,8 @@ Log
 <h4 id="NetworkOnMainThreadException"><a href="#NetworkOnMainThreadException" class="headerlink" title="NetworkOnMainThreadException"></a>NetworkOnMainThreadException</h4><ul>
 <li>네트워크에서 요청하는 코드는 long-running work이기 때문에 Background Thread로 처리하여야 한다.</li>
 </ul>
-<h3 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h3><p>구조 </p>
-<ul>
-<li>AsyncTask<params, progress,="" result=""></params,></li>
-</ul>
+<p>###AsyncTask<br>구조 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AsyncTask &lt;Params, Progress, Result&gt;</div></pre></td></tr></table></figure>
 <h3 id="Menu"><a href="#Menu" class="headerlink" title="Menu"></a>Menu</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</div><div class="line"><span class="tag">&lt;<span class="name">item</span></span></div><div class="line"><span class="attr">android:id</span>=<span class="string">"@+id/action_refresh"</span></div><div class="line"><span class="attr">android:title</span>=<span class="string">"@string/action_refresh"</span></div><div class="line"><span class="attr">app:showAsAction</span>=<span class="string">"never"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>onCreate에서 menu가 있음을 알림</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	setHasOptionsMenu(<span class="keyword">true</span>);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</div><div class="line">	inflater.inflate(R.menu.forecast_fragment_menu, menu);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -280,7 +278,7 @@ Log
 
 
 
-    <a data-url="https://znxkznxk1030.github.io/2017/01/25/Android-Day-2/" data-id="ciyckhw6h0008s4v6xwmmpywz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://znxkznxk1030.github.io/2017/01/25/Android-Day-2/" data-id="ciyco4sie0007wsv65yzdt3yj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
