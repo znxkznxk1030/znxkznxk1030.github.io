@@ -8,19 +8,55 @@
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="메인에서 Network 호출을 하면 안됨 -&amp;gt; Thread
-“#1”AdapterView 안에 ItemView 변형하기123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;LinearLayout">
+    <meta name="description" content="핵심 내용HTTP
+Https, 스트리밍 업로드, 다운로드, 시간제한, IPv6, 폴링 지원
+
+HTTP REQUEST STEPS
+MakeHTTP Request
+Read response from input stream
+Clean up and log any errors
+
+HTTP 요청 방법
+HttpURLConnection
+HttpClient
+
+Log
+너무 많은">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Day 2">
 <meta property="og:url" content="https://znxkznxk1030.github.io/2017/01/25/Android-Day-2/index.html">
 <meta property="og:site_name" content="YoungSoo's Blog">
-<meta property="og:description" content="메인에서 Network 호출을 하면 안됨 -&amp;gt; Thread
-“#1”AdapterView 안에 ItemView 변형하기123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;LinearLayout">
-<meta property="og:updated_time" content="2017-01-25T05:41:33.226Z">
+<meta property="og:description" content="핵심 내용HTTP
+Https, 스트리밍 업로드, 다운로드, 시간제한, IPv6, 폴링 지원
+
+HTTP REQUEST STEPS
+MakeHTTP Request
+Read response from input stream
+Clean up and log any errors
+
+HTTP 요청 방법
+HttpURLConnection
+HttpClient
+
+Log
+너무 많은">
+<meta property="og:updated_time" content="2017-01-25T06:25:51.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Day 2">
-<meta name="twitter:description" content="메인에서 Network 호출을 하면 안됨 -&amp;gt; Thread
-“#1”AdapterView 안에 ItemView 변형하기123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;LinearLayout">
+<meta name="twitter:description" content="핵심 내용HTTP
+Https, 스트리밍 업로드, 다운로드, 시간제한, IPv6, 폴링 지원
+
+HTTP REQUEST STEPS
+MakeHTTP Request
+Read response from input stream
+Clean up and log any errors
+
+HTTP 요청 방법
+HttpURLConnection
+HttpClient
+
+Log
+너무 많은">
     
 
     
@@ -156,7 +192,68 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>메인에서 Network 호출을 하면 안됨 -&gt; Thread</p>
+            <h2 id="핵심-내용"><a href="#핵심-내용" class="headerlink" title="핵심 내용"></a>핵심 내용</h2><h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><ul>
+<li>Https, 스트리밍 업로드, 다운로드, 시간제한, IPv6, 폴링 지원</li>
+</ul>
+<h4 id="HTTP-REQUEST-STEPS"><a href="#HTTP-REQUEST-STEPS" class="headerlink" title="HTTP REQUEST STEPS"></a>HTTP REQUEST STEPS</h4><ol>
+<li>MakeHTTP Request</li>
+<li>Read response from input stream</li>
+<li>Clean up and log any errors</li>
+</ol>
+<h5 id="HTTP-요청-방법"><a href="#HTTP-요청-방법" class="headerlink" title="HTTP 요청 방법"></a>HTTP 요청 방법</h5><ol>
+<li>HttpURLConnection</li>
+<li>HttpClient</li>
+</ol>
+<h3 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h3><ul>
+<li><strong>너무 많은 로그는 표시가 안될 수 있음 (버퍼 용량 문제)</strong></li>
+</ul>
+<ol>
+<li>ERROR : 에러 상황을 표시합니다</li>
+<li>WARN : 경고 상황을 표시합니다</li>
+<li>INFO : INFO 현재 각 단계에 맞는 상황을 표시합니다</li>
+<li>DEBUG : 개발 할 때는 보이지만 배포 때는 제외됩니다</li>
+<li>VERBOSE : 개발 할 때는 포함되지만 배포 할때는 컴파일이 되어서는<br>안 됩니다</li>
+</ol>
+<h3 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h3><ol>
+<li>Main Thread (aka UI Thread) - All user input + output<ul>
+<li>onPreExecute()</li>
+<li>onProgressUpdate()</li>
+<li>onPostExecute()</li>
+</ul>
+</li>
+<li>Background Thread - for long-running work<ul>
+<li>doInBackground()<br><strong>진행 사항 보기</strong></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>doInBackground를 진행하면서 publishProgress()를 이용하면 현재<br>작업이 얼마나 진행되었는지 알 수 있습니다</li>
+</ul>
+<h4 id="NetworkOnMainThreadException"><a href="#NetworkOnMainThreadException" class="headerlink" title="NetworkOnMainThreadException"></a>NetworkOnMainThreadException</h4><ul>
+<li>네트워크에서 요청하는 코드는 long-running work이기 때문에 Background Thread로 처리하여야 한다.</li>
+</ul>
+<h3 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h3><p>구조 </p>
+<ul>
+<li>AsyncTask<params, progress,="" result=""></params,></li>
+</ul>
+<h3 id="Menu"><a href="#Menu" class="headerlink" title="Menu"></a>Menu</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</div><div class="line"><span class="tag">&lt;<span class="name">item</span></span></div><div class="line"><span class="attr">android:id</span>=<span class="string">"@+id/action_refresh"</span></div><div class="line"><span class="attr">android:title</span>=<span class="string">"@string/action_refresh"</span></div><div class="line"><span class="attr">app:showAsAction</span>=<span class="string">"never"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>onCreate에서 menu가 있음을 알림</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	setHasOptionsMenu(<span class="keyword">true</span>);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</div><div class="line">	inflater.inflate(R.menu.forecast_fragment_menu, menu);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Refresh Button 을 눌렀을 때의 동작</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> id = item.getItemId();</div><div class="line">	<span class="keyword">if</span>(id == R.id.action_refresh) &#123;</div><div class="line">		FetchWeatherTask fetchWeatherTask = <span class="keyword">new</span> FetchWeatherTask();</div><div class="line">		fetchWeatherTask.execute();</div><div class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line"><span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="permission"><a href="#permission" class="headerlink" title="permission"></a>permission</h3><h4 id="SecurityException"><a href="#SecurityException" class="headerlink" title="SecurityException"></a>SecurityException</h4><ul>
+<li>permission 문서 : <a href="http://developer.android.com/guide/topics/security/permissions.html" target="_blank" rel="external">http://developer.android.com/guide/topics/security/permissions.html</a><br><strong>premission을 얻는 것보다 기존의 앱을 사용하고 결과 값을 얻어오는 것이 더 좋다</strong></li>
+<li>TedPermission Library : <a href="https://github.com/ParkSangGwon/TedPermission" target="_blank" rel="external">https://github.com/ParkSangGwon/TedPermission</a></li>
+</ul>
+<h4 id="android-permission-INTERNET"><a href="#android-permission-INTERNET" class="headerlink" title="android.permission.INTERNET"></a>android.permission.INTERNET</h4><ul>
+<li>AndroidMenifest.xml</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="Uri-parse"><a href="#Uri-parse" class="headerlink" title="Uri parse"></a>Uri parse</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">String forecastJsonStr = <span class="keyword">null</span>;</div><div class="line">String format = <span class="string">"JSON"</span>;</div><div class="line">String units = <span class="string">"metric"</span>;</div><div class="line"><span class="keyword">int</span> numDays = <span class="number">7</span>;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">	<span class="keyword">final</span> String FORECAST_BASE_URL = <span class="string">"http://api.openweathermap.org/data/2.5/forecast/daily?"</span>;</div><div class="line">	<span class="keyword">final</span> String QUERY_PARAM = <span class="string">"q"</span>;</div><div class="line">	<span class="keyword">final</span> String FORMAT_PARAM = <span class="string">"mode"</span>;</div><div class="line">	<span class="keyword">final</span> String UNITS_PARAM = <span class="string">"units"</span>;</div><div class="line">	<span class="keyword">final</span> String DAYS_PARAM = <span class="string">"cnt"</span>;</div><div class="line">	<span class="keyword">final</span> String APPID_PARAM = <span class="string">"APPID"</span>;</div><div class="line">	Uri uri = Uri.parse(FORECAST_BASE_URL).buildUpon()</div><div class="line">		.appendQueryParameter(QUERY_PARAM, params[<span class="number">0</span>])</div><div class="line">		.appendQueryParameter(FORMAT_PARAM, format)</div><div class="line">		.appendQueryParameter(UNITS_PARAM, units)</div><div class="line">		.appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))</div><div class="line">		.appendQueryParameter(APPID_PARAM, 	BuildConfig.OPEN_WEATHER_MAP_API_KEY)</div><div class="line">		.build();</div><div class="line">	URL url = <span class="keyword">new</span> URL(uri.toString());</div><div class="line">	Log.v(LOG_TAG, <span class="string">"URI : "</span> + uri.toString());</div></pre></td></tr></table></figure>
+<p>메인에서 Network 호출을 하면 안됨 -&gt; Thread</p>
+<h4 id="API-KEY"><a href="#API-KEY" class="headerlink" title="API KEY"></a>API KEY</h4><p>gradle &gt; build.gradle(Module: app).js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">buildTypes.each &#123;</div><div class="line">it.buildConfigField <span class="string">'String'</span>, <span class="string">'OPEN_WEATHER_MAP_API_KEY'</span>, <span class="string">'"API_KEY"'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="ArrayAdapter-갱신"><a href="#ArrayAdapter-갱신" class="headerlink" title="ArrayAdapter 갱신"></a>ArrayAdapter 갱신</h4><p><strong>add 할때  adapter.notifyDatasetChanged()자동 호출</strong></p>
 <h2 id="“-1”"><a href="#“-1”" class="headerlink" title="“#1”"></a>“#1”</h2><h3 id="AdapterView-안에-ItemView-변형하기"><a href="#AdapterView-안에-ItemView-변형하기" class="headerlink" title="AdapterView 안에 ItemView 변형하기"></a>AdapterView 안에 ItemView 변형하기</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">    <span class="attr">android:weightSum</span>=<span class="string">"4"</span></div><div class="line">    &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">               <span class="attr">android:id</span>=<span class="string">"@+id/list_item_forecast_imageview"</span></div><div class="line">               <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">               <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">               <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">               <span class="attr">android:minHeight</span>=<span class="string">"?android:attr/listPreferredItemHeight"</span></div><div class="line">               <span class="attr">android:src</span>=<span class="string">"@drawable/sunny"</span></div><div class="line">               <span class="attr">android:contentDescription</span>=<span class="string">"@string/description"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">ImageView</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">              <span class="attr">android:id</span>=<span class="string">"@+id/list_item_forecast_textview"</span></div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">              <span class="attr">android:layout_weight</span>=<span class="string">"2"</span></div><div class="line">              <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">              <span class="attr">android:minHeight</span>=<span class="string">"?android:attr/listPreferredItemHeight"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">TextView</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">CheckBox</span></span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"@string/action_checkbox"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/list_item_forecast_checkBox"</span></div><div class="line">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">CheckBox</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>이렇게 해도 되는 이유 d677723bda88ec90e787664f56ed62cf</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ForeCastFragment.java</span></div><div class="line">   mForecastAdapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(</div><div class="line">           getActivity(),</div><div class="line">           R.layout.list_item_forecast,</div><div class="line">           R.id.list_item_forecast_textview,</div><div class="line">           weekForecast</div><div class="line">   );</div></pre></td></tr></table></figure>
@@ -183,7 +280,7 @@
 
 
 
-    <a data-url="https://znxkznxk1030.github.io/2017/01/25/Android-Day-2/" data-id="ciyciwxbp0000vcv6c9b7cgc0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://znxkznxk1030.github.io/2017/01/25/Android-Day-2/" data-id="ciyckhw6h0008s4v6xwmmpywz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
