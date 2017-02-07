@@ -3,18 +3,45 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2017 | YoungSoo&#39;s Blog</title>
+    <title>Content Provider | YoungSoo&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Practice very hard">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YoungSoo's Blog">
-<meta property="og:url" content="https://znxkznxk1030.github.io/archives/2017/page/2/index.html">
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="Create Content Provider
+Determine URIs
+Update Contract
+Fill out URImatcher
+Implement Functions
+
+Why use Content Provider
+Easily change underlying data source.
+Leverage functionality of Android Classes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Content Provider">
+<meta property="og:url" content="https://znxkznxk1030.github.io/2017/02/07/Content-Provider/index.html">
 <meta property="og:site_name" content="YoungSoo's Blog">
-<meta property="og:description" content="Practice very hard">
+<meta property="og:description" content="Create Content Provider
+Determine URIs
+Update Contract
+Fill out URImatcher
+Implement Functions
+
+Why use Content Provider
+Easily change underlying data source.
+Leverage functionality of Android Classes">
+<meta property="og:updated_time" content="2017-02-07T06:21:29.081Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YoungSoo's Blog">
-<meta name="twitter:description" content="Practice very hard">
+<meta name="twitter:title" content="Content Provider">
+<meta name="twitter:description" content="Create Content Provider
+Determine URIs
+Update Contract
+Fill out URImatcher
+Implement Functions
+
+Why use Content Provider
+Easily change underlying data source.
+Leverage functionality of Android Classes">
     
 
     
@@ -123,141 +150,145 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive: 2017
+    uncategorized
     </h1>
 </div>
                         <div class="main-body-content">
-                            
+                            <article id="post-Content-Provider" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Content Provider
+        </h1>
+    
 
-    
-    
+            </header>
         
         
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
+            <div class="article-subtitle">
+                <a href="/2017/02/07/Content-Provider/" class="article-date">
+    <time datetime="2017-02-07T06:21:16.000Z" itemprop="datePublished">2017-02-07</time>
+</a>
+                
             </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
         
-        <div class="article-meta">
-            <p class="category">
-            
-            </p>
-            <p class="date"><time datetime="2017-01-19T05:07:15.000Z" itemprop="datePublished">2017-01-19</time></p>
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h4 id="Create-Content-Provider"><a href="#Create-Content-Provider" class="headerlink" title="Create Content Provider"></a>Create Content Provider</h4><ol>
+<li>Determine URIs</li>
+<li>Update Contract</li>
+<li>Fill out URImatcher</li>
+<li>Implement Functions</li>
+</ol>
+<h4 id="Why-use-Content-Provider"><a href="#Why-use-Content-Provider" class="headerlink" title="Why use Content Provider"></a>Why use Content Provider</h4><ol>
+<li>Easily change underlying data source.</li>
+<li>Leverage functionality of Android Classes. ex) Loader, syncAdapter, CursorAdapter</li>
+<li>Allow many apps to access, use and modify a single data source <strong>Security</strong></li>
+</ol>
+<h4 id="Steps-for-using-Content-Provider"><a href="#Steps-for-using-Content-Provider" class="headerlink" title="Steps for using Content Provider"></a>Steps for using Content Provider</h4><ol>
+<li>Get permission to use Content provider</li>
+<li>Access to correct Content provider ( Using ContentResolver)</li>
+<li>Perform some operation with the data(query, insert, update, delete, <strong>not Create</strong>)</li>
+<li>(optional) Display the information in the UI. </li>
+</ol>
+<h4 id="Tips-for-Using-Cursor"><a href="#Tips-for-Using-Cursor" class="headerlink" title="Tips for Using Cursor"></a>Tips for Using Cursor</h4><ul>
+<li><p>getCount()</p>
+</li>
+<li><p>moveToNext()</p>
+<p>ex)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(Cursor.moveToNext())&#123;</div><div class="line">  <span class="comment">//doing Something</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>getColumIndex(<strong>Name of Column</strong>)</p>
+</li>
+<li><p>getString(), getInt(), …etc</p>
+<p>ex)</p>
+<p>​</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> WordColumn = cursor.getColmIndex(**Scheme**);</div><div class="line">String word = cursor.getString(wordColumn);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>close();</strong></p>
+</li>
+</ul>
+<h4 id="Using-CursorAdapter-to-show-UI"><a href="#Using-CursorAdapter-to-show-UI" class="headerlink" title="Using CursorAdapter to show UI"></a>Using CursorAdapter to show UI</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//scheme</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] COLUMN_TO_BE_BOUND = <span class="keyword">new</span> String[]&#123;</div><div class="line">  	UserDictionary.Words.WORD,</div><div class="line">    UserDictionary.Words.FREQUENCY</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//view</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>[] LAYOUT_ITEMS_TO_FILL = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;</div><div class="line">  	android.R.id.text1,</div><div class="line">    android.R.id.text2</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*Adapting</span></div><div class="line">	@Adapter View</div><div class="line">	@Cursor</div><div class="line">	@Scheme</div><div class="line">	@Views</div><div class="line">*/</div><div class="line">SimpleCursorAdapter adapter = <span class="keyword">new</span> SimpleCursorAdapter(<span class="keyword">this</span>,</div><div class="line">    android.R.layout.two_line_list_item,</div><div class="line">    cursor,</div><div class="line">    COLUMN_TO_BE_BOUND,</div><div class="line">    LAYOUT_ITEMS_TO_FILL,</div><div class="line">    <span class="number">0</span>);</div></pre></td></tr></table></figure>
+
         </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/01/19/Javascript/">Javascript</a>
-        </h1>
-    
+        <footer class="article-footer">
+            
 
-        <p class="article-excerpt">
-            기본 도구함수
-confirm(“”)
-prompt(“”)
-console.log(“”)
-type of ~
 
-Variable
-오직 var 로만 접근 가능. (Number, String, Boolean 형 존재)
 
-2차 배열1var var_name = [[],[]];
+    <a data-url="https://znxkznxk1030.github.io/2017/02/07/Content-Provider/" data-id="ciyv527i700064wv6drotnwnp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
 
-jagged Array
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
 
-1var jagged = [[1,2],[1,2,3]];
-Function
-        </p>
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
+
+    <section id="comments">
     
+      
 
     
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <p class="category">
-            
-            </p>
-            <p class="date"><time datetime="2017-01-18T14:30:10.000Z" itemprop="datePublished">2017-01-18</time></p>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/01/18/html-css/">html/css</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            (HTML + CSS = BFFs)css 불러오기1&lt;link type="text/css"  rel="stylesheet" href="stylesheet.css"/&gt;
-기본 폰트
-serif
-sans-serif
-cursive
-
-SELECTOR중첩된 selector 관리
-somewhere
-
-123div h3&#123;    color: red;   &#
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <p class="category">
-            
-            </p>
-            <p class="date"><time datetime="2017-01-17T13:53:12.894Z" itemprop="datePublished">2017-01-17</time></p>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/01/17/hello-world/">Hello World</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">Page 2 of 2</span>
-        <a class="extend prev" rel="prev" href="/archives/2017/">&laquo;</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-    </nav>
+    </section>
 
 
                         </div>
@@ -318,6 +349,19 @@ Quick
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/01/31/Android-Day-4/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Android Day 4</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
